@@ -1,0 +1,36 @@
+testing
+
+ //Checking PersonTypes
+  //example on how to check a value in an object
+  /* test('object assignment', () => {
+  const data = {one: 1};
+  data['two'] = 2;
+  expect(data).toEqual({one: 1, two: 2});
+}); */
+  //checking strings..  not.toMatch(value) ...  toMatch(value)
+  //arrays:  toContain..
+  //errors: toThrow
+
+  // Need to look into the following... will need to mock some things..
+
+
+   it('should return PersonType equal to friend', async () => {
+    const mockFetchCurrentUser: jest.Mock = require.requireMock('../getMyWebId')
+      .getMyWebId;
+    mockFetchCurrentUser.mockReturnValueOnce(
+      'https://be-my-friend.inrupt.net/profile/card#me'
+    );
+
+    const mockLists: jest.Mock = require
+      .requireMock('../fetchPersonDetails')
+      .lists(
+        'https://be-my-friend.inrupt.net/profile/card#me',
+        'https://example-user.inrupt.net/profile/card#me'
+      );
+    mockLists.mockReturnValueOnce(true);
+    expect(
+      await fetchPersonDetails(
+        'https://example-user.inrupt.net/profile/card#me'
+      )
+    ).toHaveProperty('personType', 'friend');
+  });

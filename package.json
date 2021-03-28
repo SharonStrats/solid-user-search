@@ -1,0 +1,56 @@
+{
+  "name": "solid-user-search",
+  "version": "1.0.2",
+  "description": "Solid Library to retrieve friends for a user",
+  "main": "./dist/index.js",
+  "module": "dist/index.es.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "build": "rollup --config rollup.config.js",
+    "validate": "npm run test && npm run build",
+    "setup": "npm install && npm validate"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run validate"
+    }
+  },
+  "keywords": [
+    "solid",
+    "friends"
+  ],
+  "contributors": [
+    {
+      "name": "Michiel de Jong",
+      "url": "https://github.com/michielbdejong"
+    },
+    {
+      "name": "Sharon Stratsianis",
+      "url": "https://github.com/sharonstrats"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "rollup": "^1.27.13",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inrupt/solid-user-search"
+  },
+  "dependencies": {
+    "@comunica/actor-rdf-join-nestedloop": "^1.10.0",
+    "@solid/react": "^1.8.0",
+    "@types/jest": "^24.0.25",
+    "@types/n3": "^1.1.1",
+    "@types/solid__react": "^1.6.1",
+    "react": "^16.12.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "tripledoc": "^3.0.1",
+    "ts-jest": "^25.0.0"
+  }
+}
